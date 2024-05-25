@@ -31,7 +31,7 @@ public class BaseTests {
     public void tearDown(){
         driver.quit();
 
-    }
+ }
     public static void main(String args[]){
 
         BaseTests test = new BaseTests();

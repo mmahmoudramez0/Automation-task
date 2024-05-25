@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Random;
+
 public class RegisterationPage {
     public CSVReader csvReader = new CSVReader("./resources/Book1.csv");
     private WebDriver driver;
@@ -12,11 +14,14 @@ public class RegisterationPage {
 
         this.driver = driver;
     }
-    private By dateOfBirthDay = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/form/div[1]/div[2]/div[4]/div/select[1]");
+    Random random = new Random();
 
-    private By dateOfBirthMonth = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/form/div[1]/div[2]/div[4]/div/select[2]");
 
-    private By dateOfBirthYear = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/form/div[1]/div[2]/div[4]/div/select[3]");
+    private By dateOfBirthDay = By.xpath("//select[contains(@name , 'DateOfBirthDay')]");
+
+    private By dateOfBirthMonth = By.xpath("//select[contains(@name , 'DateOfBirthMonth')]");
+
+    private By dateOfBirthYear = By.xpath("//select[contains(@name , 'DateOfBirthYear')]");
 
 
     private By maleGenderRadioButton = By.id("gender-male");
@@ -42,7 +47,8 @@ public class RegisterationPage {
     }
 
     public void setEmail (){
-        driver.findElement(emailTextBox).sendKeys(csvReader.readValue("email"));
+        int randomNumber = random.nextInt();
+        driver.findElement(emailTextBox).sendKeys(randomNumber+csvReader.readValue("email"));
 
     }
 
