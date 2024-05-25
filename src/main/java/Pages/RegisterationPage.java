@@ -64,10 +64,6 @@ public class RegisterationPage {
         driver.findElement(confirmPasswordTextBox).sendKeys(csvReader.readValue("password"));
 
     }
-    public void clickDropDown(WebDriver driver){
-        driver.findElement(dateOfBirthDay).click();
-
-    }
     public void selectFromDayDropDown (){
         Select dropDownElement = new Select(driver.findElement(dateOfBirthDay));
         dropDownElement.selectByValue(csvReader.readValue("dayofbirth"));
